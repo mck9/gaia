@@ -1,0 +1,39 @@
+.template-project_view {
+  .page-inner {
+    padding: 0 20px 100px 20px;
+  }
+  h1 {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  .project-text {
+    max-width: 40em;
+    margin: 0 auto 4em auto;
+    color: #333;
+    font-family: "Noto Serif", serif;
+  }
+  .project-pdf {
+    max-width: 40em;
+    margin: 0 auto 4em auto;
+    text-align: center;
+    /* &:before { */
+    /*   content: "»"; */
+    /* } */
+    a {
+      @include text-link;
+    }
+  }
+  .project-images-listing {
+    text-align: center;
+
+    .figure-outer {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      align-items: center;
+    }
+    figcaption {
+      margin-top: 10px;
+    }
+  }
+}

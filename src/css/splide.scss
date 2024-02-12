@@ -1,0 +1,33 @@
+.splide {
+  .splide__arrow--next {
+    right: -2.5em;
+  }
+  .splide__arrow--prev {
+    left: -2.5em;
+  }
+  .splide__arrow svg {
+    fill: #ccc;
+  }
+  .splide__arrow:hover:not(:disabled) svg {
+    fill: #019fb6;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .splide {
+    .splide_pagination {
+      bottom: 0;
+      padding: 0 30px;
+    }
+    .splide__arrows {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+    }
+    .splide__arrow--next {
+      right: 0;
+    }
+    .splide__arrow--prev {
+      left: 0;
+    }
+  }
+}

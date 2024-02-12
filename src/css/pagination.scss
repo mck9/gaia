@@ -1,0 +1,108 @@
+.page.open .pagination {
+  display: block;
+}
+
+.page .pagination {
+  display: none;
+  opacity: 1;
+  position: fixed;
+  right: 60px;
+  top: 15px;
+  width: calc(100vw - 60px);
+  pointer-events: none;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      max-width: calc(50vw - 50px);
+      position: absolute;
+
+      a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: none;
+	transition: background-color 0.25s;
+	font-weight: normal;
+	text-decoration: none;
+	color: #444;
+	padding: 0;
+
+	.label {
+	  position: absolute;
+	  transition: opacity 0.25s;
+	  opacity: 0;
+	  padding: 5px 120px 5px 15px;
+	  pointer-events: none;
+	  max-width: 30em;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
+	  line-height: 45px;
+	  z-index: 990;
+	}
+	.arrow {
+	  display: inline-block;
+	  pointer-events: auto;
+	  color: #ccc;
+	  font-size: 45px;
+	  width: 45px;
+	  height: 45px;
+	  text-align: center;
+	  z-index: 999;
+	  -webkit-user-select: none;
+	  user-select: none;
+	}
+	&:hover {
+	  background-color: #fff;
+	  .arrow {
+	    &:after, &:before {
+	      filter: grayscale(0%);
+	      opacity: 1;
+	    }
+	  }
+	  .label {
+	    background-color: #fff;
+	    width: inherit;
+	    opacity: 1;
+	  }
+	}
+      }
+    }
+
+    li.previous .arrow:after,
+    li.next .arrow:before {
+      content: "";
+      display: block;
+      height: 45px;
+      width: 45px;
+      transition: opacity 0.25s, filter 0.25s;
+      filter: grayscale(100%);
+      opacity: 0.3;
+      background-size: 45px 45px;
+      background-repeat: no-repeat;
+    }
+
+    li.previous {
+      right: 60px;
+      .arrow:after {
+	background-image: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'  fill='rgb(1,159,182)'><path d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z' /></svg> ");
+      }
+      .label {
+	right: -45px;
+      }
+    }
+    li.next {
+      right: 10px;
+      .arrow:before {
+	background-image: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24' fill='rgb(1,159,182)'><path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z' /></svg> ");
+      }
+      .label {
+	right: 0px;
+      }
+    }
+  }
+}

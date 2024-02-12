@@ -1,0 +1,8 @@
+div.template-listing_view {
+  article.entry {
+    > p.description {
+      font-style: italic;
+      margin-top: 0;
+    }
+  }
+}
