@@ -16,7 +16,6 @@
     "build": "webpack --mode production",
     "stats": "webpack --json > stats.json; yarn webpack-bundle-analyzer stats.json",
     "lint": "eslint",
-    "prepare": "husky install"
   },
   "lint-staged": {
     "src/*.{js,jsx,tsx,ts}": "eslint --fix"
@@ -40,7 +39,6 @@
     "eslint": "^8.10.0",
     "eslint-webpack-plugin": "^3.1.1",
     "html-webpack-plugin": "^4.5.0",
-    "husky": "^7.0.0",
     "lint-staged": "^12.1.2",
     "mini-css-extract-plugin": "2.7.7",
     "modern-normalize": "2.0.0",
