@@ -8,7 +8,7 @@ import Website from './Website';
 
 const website = new Website({
   dom: document.querySelector('#earth-canvas'),
-  cms_url: "https://guillaumebarth.com/cms",
+  cms_url: "https://gb.tuxwerk.de/cms",
   languages: ["fr", "en"],
 });
 website.init();

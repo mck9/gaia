@@ -20,6 +20,7 @@ export default class Moon {
   constructor(options: options) {
     this.options = options;
     this.group = new Group();
+    this.group.name = "moon_group";
   }
 
   async init(): Promise<void> {
@@ -37,6 +38,7 @@ export default class Moon {
       bumpScale: 0.1,
     });
     this.moon = new Mesh(geometry, material);
+    this.moon.name = "moon";
     this.moon.receiveShadow = true;
     this.moon.castShadow = true;
     this.moon.position.copy(this.options.position);

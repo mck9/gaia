@@ -106,7 +106,6 @@ export default class earth {
 
   async init(): Promise<void> {
     return new Promise(async (resolve) => {
-      this.group.rotation.z = 0.4;
       this.createEarth();
       // the glow around earth
       this.createEarthGlow();
@@ -163,6 +162,7 @@ export default class earth {
       transparent: false,
     });
     material.needsUpdate = true;
+
     this.earth = new Mesh(geometry, material);
     this.earth.receiveShadow = true; //default
     this.earth.castShadow = true;

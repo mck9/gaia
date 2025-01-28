@@ -1,5 +1,5 @@
 import {
-  Mesh, MeshBasicMaterial, Vector3, SpotLight, SphereGeometry, Group, Object3D
+  Mesh, MeshBasicMaterial, Vector3, PointLight, SphereGeometry, Group, Object3D
 } from "three";
 
 type options = {
@@ -11,11 +11,12 @@ export default class Sun {
 
   public sun: Object3D;
   public group: Group;
-  public light: SpotLight;
+  public light: PointLight;
 
   constructor(options: options) {
     this.options = options;
     this.group = new Group();
+    this.group.name = "sun_group";
   }
 
   async init(): Promise<void> {
@@ -32,16 +33,16 @@ export default class Sun {
       color: 0xffffff
     });
     this.sun = new Mesh(geometry, material);
+    this.sun.name = "sun";
     this.sun.receiveShadow = false;
     this.sun.position.copy(this.options.position);
     this.group.add(this.sun);
   }
 
   private createSunLight() {
-    this.light = new SpotLight(0xffffff);
-    this.light.angle = Math.PI / 12;
+    this.light = new PointLight(0xffffff);
+    this.light.name = "sun_light";
     this.light.position.copy(this.options.position);
-    this.light.penumbra = 0.5;
     this.light.decay = 0;
     this.light.distance = 0;
     this.light.intensity = 5;
@@ -50,10 +51,8 @@ export default class Sun {
     // Set up shadow properties for the light
     this.light.shadow.mapSize.width = 1024 * 4; // default
     this.light.shadow.mapSize.height = 1024 * 4; // default
-    this.light.shadow.camera.fov = 10; // default
-    this.light.shadow.camera.near = 1; // default
-    this.light.shadow.camera.far = 1000; // default
-    this.light.shadow.focus = 0.5; // default
+    this.light.shadow.camera.near = 100; // default
+    this.light.shadow.camera.far = 1500; // default
 
     this.group.add(this.light);
   }

@@ -18,6 +18,7 @@ export default class Stars {
   constructor(options: options) {
     this.options = options;
     this.group = new Group();
+    this.group.name = "stars_group";
   }
 
   async init(): Promise<void> {
@@ -38,8 +39,11 @@ export default class Stars {
       side: BackSide,
     });
     material.needsUpdate = true;
+
     this.stars = new Mesh(geometry, material);
     this.stars.rotation.z = 1.1;
+    this.stars.receiveShadow = false;
+    this.stars.castShadow = false;
     this.group.add(this.stars);
   }
 

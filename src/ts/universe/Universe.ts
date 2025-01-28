@@ -88,8 +88,8 @@ export default class Universe {
         this.createEarth();
         this.createSun();
         this.createMoon();
-        this.render()
 
+        this.render()
         this.addEvents();
       })
       resolve();
